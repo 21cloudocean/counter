@@ -29,7 +29,17 @@ buttonContainer.addEventListener("click", function (e) {
   } else if (select.contains("reset")) {
     count = 0;
   }
-
+  //加颜色：如果写count=0，那么当数字由负数加成0时0是红的，由正数减成0时0是绿的；reset也一样，不会是黑的。
+  //但是count===0，只要数字为0，就是黑的
+  if (count > 0) {
+    value.style.color = "green";
+  }
+  if (count < 0) {
+    value.style.color = "red";
+  }
+  if (count === 0) {
+    value.style.color = "black";
+  }
   value.textContent = count;
 });
 
